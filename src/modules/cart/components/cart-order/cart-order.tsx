@@ -59,7 +59,7 @@ export function CartOrder({
             onClick={() => navigate("checkout")}
           />
         </div>
-        <div className="text-center text-b3_m text-text-3">
+        <div className="mt-1 text-center text-b3_m text-text-3">
           Приём заказов — с 10 утра до 7 вечера пн-пт
         </div>
       </div>

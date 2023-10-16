@@ -14,6 +14,7 @@ import OrderFixedButton from "../../components/order-fixed-button";
 export function Checkout() {
   const navigate = useNavigate();
   const [anotherContact, addAnotherContact] = useState(false);
+  const [selfPick, setSelfPick] = useState(false);
   const [payAsPhys, setPayAsPhys] = useState(false);
   const paymentInfo =
     "Оплата поставщику осуществляется по расчетному счёту, который заведёт поставщик. Вы можете выбрать оплатить, как физ. лицо, чтобы рассчитаться за товар при получении без договора!";
@@ -37,8 +38,14 @@ export function Checkout() {
     "12:00 - 13:00",
   ].map((day, indx) => ({ id: indx.toString(), name: day }));
 
+  const supplierAddress =
+    "Санкт-Петербург, Ул. 1-ая Советская, 28 к1, офис 18, 1 этаж.";
   const cityNotificationWarning =
     "Вы можете заказать товар в предложенные города, в которые доставляет поставщик.";
+  const selfPickWarning =
+    "Вы можете забрать товар по указанному адресу в выбранный день и время после оформления заказа и подтверждения от поставщика по звонку или на почту.";
+  const supplierShippingTimeWarning =
+    "Поставщик может изменить финальную цену и срок доставки в зависимости от выбранного города и региона.";
 
   return (
     <Form className="relative">
@@ -54,8 +61,12 @@ export function Checkout() {
         <div className="mx-5 pb-6 [&>*]:mb-2">
           <div className="mb-3 text-h2_m">Адрес и время</div>
           <InputWithTitle label="Название заведения" onChange={() => {}} />
-          <NotificationBlock color="accent" text={cityNotificationWarning} />
+          {/* <NotificationBlock color="accent" text={cityNotificationWarning} /> */}
           <InputWithTitle label="Адрес доставки" onChange={() => {}} />
+          <NotificationBlock
+            color="accent"
+            text={supplierShippingTimeWarning}
+          />
           <InputWithTitle
             className="mb-7"
             label="Комментарий..."
@@ -73,10 +84,18 @@ export function Checkout() {
           </div>
           <Toggle
             className="mb mt-6"
-            checked={false}
+            checked={selfPick}
             text="Cамовывоз по адресу постащика"
-            onChange={() => {}}
+            onChange={setSelfPick}
           />
+          {selfPick && (
+            <>
+              <div className="my-2 text-b3_m text-text-2">
+                {supplierAddress}
+              </div>
+              <NotificationBlock color="accent" text={selfPickWarning} />
+            </>
+          )}
         </div>
       </div>
       <div className="mb-3 rounded-2xl bg-basic-0 px-5 py-7 [&>*]:mb-2">

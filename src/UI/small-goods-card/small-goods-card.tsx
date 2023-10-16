@@ -28,8 +28,8 @@ export default function SmallGoodsCard({
         style={{ backgroundImage: `url('${imageUrl}')` }}
         className="relative h-20 w-full rounded-t-2xl bg-cover bg-center bg-no-repeat"
       ></div>
-      <div>
-        <div className="m-1 w-full text-start text-b4_m text-text-2">
+      <div className="flex h-20 flex-col justify-between">
+        <div className="m-1 line-clamp-2 w-full text-start text-b4_m text-text-2">
           {title}
         </div>
         {editMode ? (

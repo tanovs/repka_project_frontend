@@ -32,6 +32,10 @@ export const routes = createHashRouter(
       <Route path="" element={<MainPage />}>
         <Route path="" element={<HomePage />}></Route>
         <Route path="categories" element={<CategoriesPage />}></Route>
+        <Route
+          path="categories/:categoryId"
+          element={<ProductListPage />}
+        ></Route>
         <Route path="search" element={<SearchResults />}></Route>
         <Route path="supplier/:supplierId" element={<SupplierPage />}></Route>
         <Route
@@ -51,7 +55,10 @@ export const routes = createHashRouter(
         <Route path="" element={<SupplierRegisterForm />} />
         <Route path="form-complete" element={<SupplierFormComplete />} />
         <Route path="add-products" element={<SupplierProductAddPage />} />
-        <Route path="upload-documents" element={<SupplierProductAddPage />} />
+        <Route
+          path="upload-documents"
+          element={<SupplierDocumentUploadPage />}
+        />
         <Route
           path="registration-complete"
           element={<SupplierRegistrationComplete />}

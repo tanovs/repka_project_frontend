@@ -1,0 +1,37 @@
+<svg width="111" height="101" viewBox="0 0 111 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mask group">
+<g id="Mask group_2">
+<mask id="mask0_3300_8084" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="111" height="101">
+<rect id="Rectangle 154" x="0.527344" y="0.201172" width="110" height="100" rx="15" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_3300_8084)">
+<path id="Ellipse 32" d="M98.9283 43.9649C112.937 58.9089 118.476 88.9713 106.783 99.9321C95.0911 110.893 75.9023 109.42 63.9242 96.6424C51.946 83.8648 41.2755 50.6669 50.7563 41.7793C62.4486 30.8185 81.4859 25.3583 98.9283 43.9649Z" fill="url(#paint0_diamond_3300_8084)"/>
+<g id="Group 20">
+<path id="Ellipse 33" d="M87.711 76.3935C93.6836 90.2471 87.7147 106.138 74.3789 111.888C61.0432 117.637 45.3906 111.068 39.4179 97.2141C36.021 89.3351 35.8958 84.7615 39.4798 79.8699C42.1975 76.1608 46.9095 71.7881 54.741 68.4205C63.1195 64.8177 72.6927 64.0571 77.6912 65.8357C82.1534 67.4234 85.1005 70.3386 87.711 76.3935Z" fill="url(#paint1_diamond_3300_8084)"/>
+<path id="Ellipse 34" d="M81.804 69.9074C84.3402 75.9984 76.1333 84.7787 64.0364 89.8155C51.9394 94.8524 40.3108 93.7044 37.9971 88.1475C36.028 83.4185 43.35 74.2253 55.447 69.1884C67.5439 64.1516 79.835 65.1784 81.804 69.9074Z" fill="url(#paint2_diamond_3300_8084)"/>
+<ellipse id="Ellipse 35" cx="59.7673" cy="78.313" rx="11.7154" ry="4.59026" transform="rotate(-22.6056 59.7673 78.313)" fill="url(#paint3_diamond_3300_8084)"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_diamond_3300_8084" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(123.584 115.25) rotate(-125.851) scale(118.018 187.12)">
+<stop offset="0.152589" stop-color="#E24615"/>
+<stop offset="0.473911" stop-color="#FFB547"/>
+<stop offset="0.810724" stop-color="#FFE600"/>
+<stop offset="1" stop-color="#96D762"/>
+</radialGradient>
+<radialGradient id="paint1_diamond_3300_8084" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(75.1141 110.228) rotate(-111.066) scale(42.4191 86.1267)">
+<stop stop-color="#67513C"/>
+<stop offset="1" stop-color="#C98F59"/>
+</radialGradient>
+<radialGradient id="paint2_diamond_3300_8084" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(60.0455 79.3755) rotate(69.816) scale(23.5203 49.9507)">
+<stop stop-color="#7CA35E"/>
+<stop offset="1" stop-color="#C9E36E"/>
+</radialGradient>
+<radialGradient id="paint3_diamond_3300_8084" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(59.8541 77.6883) rotate(89.0329) scale(9.63378 68.6484)">
+<stop offset="0.255208" stop-color="#FFF0B9"/>
+<stop offset="1" stop-color="#5E5535"/>
+</radialGradient>
+</defs>
+</svg>

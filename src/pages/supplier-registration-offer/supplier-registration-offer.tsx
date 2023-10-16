@@ -9,9 +9,9 @@ export default function SupplierRegistrationOffer() {
     <SingleButtonPageWrapper
       title="Стать поставщиком"
       buttonText="Заполнить форму"
-      primaryText="Мы отправили ваш заказ!"
       secondaryText="Чтобы попасть в базу сервиса, вам нужно заполнить форму с информацией о вашей компании и товарах."
       onMainButtonClick={() => navigate("../")}
+      onBackButtonClick={() => navigate("../../")}
     >
       <SupplierRegistrationImage />
     </SingleButtonPageWrapper>

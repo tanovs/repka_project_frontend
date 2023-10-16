@@ -59,14 +59,14 @@ export const SupplierRegisterDocuments = forwardRef(
             key={"inn"}
           />
           <AttachmentUpload
-            title="Добавить обложку профиля компании"
+            title="Добавить сертификат"
             size="medium"
             attachmentType="image"
             onAttachmentChange={() => {}}
             key={"companyImage"}
           />
           <NotificationBlock
-            color="accent"
+            color="secondary"
             text="Вы можете  добавить сертификаты, подтверждающие качество ваших продуктов,а также прикрепить ссылку на оригинал сертификата, если такой имеется в доступе."
           />
           <InputWithTitle

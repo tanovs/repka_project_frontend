@@ -21,7 +21,7 @@ export default function SupplierLabel({
 
   return (
     <div
-      onClick={() => navigate("/supplier/")}
+      onClick={() => navigate(`/supplier/${supplierId}`)}
       className={`flex ${height} w-fit items-center rounded-3xl ${backgroundColor}`}
     >
       <img

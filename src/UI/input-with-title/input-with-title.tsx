@@ -48,8 +48,8 @@ export default function InputWithTitle({
         //   changeInput(e.target.value)
         // }
         className={`m-3 w-full ${
-          error && "placeholder-extra-1"
-        } bg-inherit text-b2_m text-text-0 focus-visible:text-text-2 focus-visible:outline-none`}
+          error && !focus && "placeholder-extra-1"
+        } bg-inherit text-b2_m text-text-2 placeholder-shown:text-text-0 invalid:text-extra-1 focus-visible:text-text-2 focus-visible:outline-none`}
         type="text"
         placeholder={label}
         {...registerInputFoo}

@@ -7,6 +7,7 @@ import CartItemProduct, {
 import SupplierLabel from "../../UI/supplier-label/supplier-label";
 import ChipsWrapped from "../../UI/chips-wrapped/chips-wrapped";
 import Chip from "../../UI/chip/chip";
+import { NotificationBlock } from "../../UI/notification-block/notification-block";
 
 export default function OrderData() {
   const navigate = useNavigate();
@@ -18,10 +19,12 @@ export default function OrderData() {
     title: "Молоко коровье 5% пастеризованное",
     weight: "500 мл",
   };
+  const supplierShippingTimeWarning =
+    "Поставщик может изменить финальную цену и срок доставки в зависимости от выбранного города и региона.";
 
   return (
     <div className="[&>*]:mb-3 last:[&>*]:m-0">
-      <div className="rounded-2xl bg-basic-0 pb-7 shadow-upper">
+      <div className="rounded-2xl bg-basic-0 pb-5 shadow-upper">
         <HeaderWithButtons
           title="Данные заказа"
           onLeftButtonClick={() => navigate("./cart")}
@@ -38,6 +41,11 @@ export default function OrderData() {
             <div className="text-b1_m text-text-3">Итоговая сумма</div>
             <div className="text-b1_m text-text-3">1 160 ₽</div>
           </div>
+          <NotificationBlock
+            className="mt-2"
+            color="accent"
+            text={supplierShippingTimeWarning}
+          />
         </div>
       </div>
       <div className="rounded-2xl bg-basic-0 p-5 [&>*]:mb-3">

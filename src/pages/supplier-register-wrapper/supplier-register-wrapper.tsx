@@ -45,7 +45,7 @@ export default function SupplierRegisterWrapper() {
       <FloatingPortal>
         {isOpen && (
           <FloatingOverlay
-            className="grid place-items-center backdrop-blur-[2px]"
+            className="grid place-items-center bg-[#00000029] backdrop-blur-[2px]"
             lockScroll
           >
             <FloatingFocusManager context={context}>

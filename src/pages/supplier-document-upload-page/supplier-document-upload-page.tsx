@@ -8,7 +8,7 @@ export default function SupplierDocumentUploadPage() {
     <div className="h-screen w-full bg-extra-2 pt-beforeContent">
       <div className="relative h-full w-full rounded-t-2xl bg-basic-0 px-5">
         <HeaderWithButtons
-          className="mx-0 mb-5"
+          className="!mx-0 mb-5"
           title="Стать поставщиком"
           onLeftButtonClick={() => navigate(-1)}
         />

@@ -22,7 +22,7 @@ export default function SupplierCard({
   const navigate = useNavigate();
 
   return (
-    <div className="w-full" onClick={() => navigate("/supplier/")}>
+    <div className="w-full" onClick={() => navigate("/supplier/1")}>
       <div
         style={{ backgroundImage: `url('${companyImage}')` }}
         className={`relative h-40 w-full rounded-2xl bg-cover bg-center bg-no-repeat`}

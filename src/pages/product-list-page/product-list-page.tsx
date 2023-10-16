@@ -4,8 +4,10 @@ import ChipsWrapped from "../../UI/chips-wrapped/chips-wrapped";
 import { HeaderWithButtons } from "../../UI/header-with-back-button/header-with-back-button";
 import SmallGoodsCard from "../../UI/small-goods-card/small-goods-card";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductListPage() {
+  const navigate = useNavigate();
   const categoryChips = [
     "Молоко",
     "Сыр",
@@ -61,7 +63,7 @@ export default function ProductListPage() {
         <HeaderWithButtons
           className="mb-4"
           title="Товары поставщика"
-          onLeftButtonClick={() => {}}
+          onLeftButtonClick={() => navigate(-1)}
           onRightButtonClick={() => {}}
         >
           <SearchIcon className="rotate-90" />

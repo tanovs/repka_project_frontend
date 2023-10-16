@@ -9,6 +9,7 @@ type RepkaSelectOption = {
 };
 export type RepkaSelectProps = InputWithTitleProps & {
   options: RepkaSelectOption[];
+  multi?: boolean;
 };
 
 const DropdownIndicator = (props: DropdownIndicatorProps) => {
@@ -27,6 +28,7 @@ export default function RepkaSelect({
   className,
   id,
   options,
+  multi,
 }: RepkaSelectProps) {
   // const [inputValue, setInputValue] = useState();
   const changeInput = (value: string) => {
@@ -48,7 +50,7 @@ export default function RepkaSelect({
       <Select
         className={`mx-3 my-1 h-auto w-full ${
           error && "placeholder-extra-1"
-        } bg-inherit text-b2_m text-text-0 focus-visible:text-text-2 focus-visible:outline-none`}
+        } bg-inherit text-b2_m placeholder-shown:text-text-0 invalid:text-extra-1 focus-visible:text-text-1 focus-visible:outline-none`}
         unstyled
         classNames={{
           control: (state) =>
@@ -62,11 +64,13 @@ export default function RepkaSelect({
             "px-3 py-1 rounded-2xl bg-basic-2 mr-1 my-1 text-text-3 text-text-b4_m",
           multiValueRemove: () => "text-text-0",
           dropdownIndicator: () => "ml-1",
+          container: (props) =>
+            props.hasValue ? "text-text-2" : "text-text-0",
         }}
         options={options}
         id={id}
         key={id}
-        isMulti
+        isMulti={multi}
         // onChange={(e: ChangeEvent<HTMLInputElement>) =>
         //   changeInput(e.target.value)
         // }

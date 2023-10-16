@@ -46,23 +46,25 @@ export const SupplierRegisterShipping = forwardRef(
           <div className="[&>*]:mb-5 last:[&>*]:m-0">
             <RepkaSelect
               label="Города доставки"
+              multi
               options={[
                 { value: "0", label: "Новосбирск" },
                 { value: "1", label: "Нижний Новгород" },
                 { value: "2", label: "Санкт-Петербург" },
               ]}
-              registerInputFoo={register("cities", { required: true })}
+              registerInputFoo={register("cities", { required: false })}
               error={errors.cities}
               key={"cities"}
             ></RepkaSelect>
             <RepkaSelect
               label="Области доставки"
+              multi
               options={[
                 { value: "0", label: "Московская область" },
                 { value: "1", label: "Ставропольский край" },
                 { value: "2", label: "Воронежская область" },
               ]}
-              registerInputFoo={register("area", { required: true })}
+              registerInputFoo={register("area", { required: false })}
               error={errors.area}
               key={"area"}
             ></RepkaSelect>

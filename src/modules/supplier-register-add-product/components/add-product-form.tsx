@@ -9,6 +9,7 @@ import { ReactComponent as ThrashIcon } from "../../../assets/icons/thrash.svg";
 import RepkaSelect, {
   RepkaSelectProps,
 } from "../../../UI/repka-select/repka-select";
+import { ProductPhotos } from "./product-photos";
 
 type AddProductFormFields = {
   category: string;
@@ -67,6 +68,20 @@ export default function AddProductForm({
       value: "2",
     },
   ];
+  const tagOptions: RepkaSelectProps["options"] = [
+    {
+      label: "Молоко",
+      value: "0",
+    },
+    {
+      label: "Огурцы",
+      value: "1",
+    },
+    {
+      label: "Свинина",
+      value: "2",
+    },
+  ];
 
   return (
     <div className="[&>*]:mb-5">
@@ -82,31 +97,21 @@ export default function AddProductForm({
         label="Выберите категорию товара"
         options={categoryOptions}
       />
-      <InputWithTitle
-        key={"category"}
-        registerInputFoo={register("category")}
-        label="Выберите категорию товара"
-        error={errors.category}
-      />
-      <InputWithTitle
+
+      <RepkaSelect label="Выберите тэг товара" options={tagOptions} />
+      {/* <InputWithTitle
         key={"tag"}
         registerInputFoo={register("tag")}
         label="Выберите тэг товара"
         error={errors.tag}
-      />
+      /> */}
       <InputWithTitle
         key={"title"}
         registerInputFoo={register("title")}
         label="Наименование товара"
         error={errors.title}
       />
-      <AttachmentUpload
-        key={"image"}
-        title="Добавить фото товара"
-        attachmentType="image"
-        size="medium"
-        onAttachmentChange={() => {}}
-      />
+      <ProductPhotos />
       <InputWithTitle
         key={"price"}
         registerInputFoo={register("price")}
@@ -140,7 +145,7 @@ export default function AddProductForm({
       <InputWithTitle
         key={"bestBeforeAndOthers"}
         registerInputFoo={register("bestBeforeAndOthers")}
-        label="Выберите категорию товара"
+        label="Срок годности и условия хранения"
         error={errors.bestBeforeAndOthers}
       />
       <InputWithTitle

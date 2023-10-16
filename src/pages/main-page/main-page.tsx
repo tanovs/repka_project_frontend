@@ -21,8 +21,8 @@ export function MainPage() {
     <>
       <div className="relative h-[100vh] w-full overflow-x-hidden bg-basic-1">
         <SearchBar
-          onSearchFocus={(isFocused) => setSearchFocused(isFocused)}
-          onSearchInputChange={(input) => setSearchUrl(input)}
+          onSearchFocus={setSearchFocused}
+          onSearchInputChange={setSearchUrl}
           onFiltersButtonClick={() => setFiltersVisibility(true)}
           chooseSearchType={(type) => (searchEntityType.current = type)}
         />

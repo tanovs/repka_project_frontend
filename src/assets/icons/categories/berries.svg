@@ -1,0 +1,42 @@
+<svg width="111" height="101" viewBox="0 0 111 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mask group">
+<g id="Mask group_2">
+<mask id="mask0_3300_4367" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="111" height="101">
+<rect id="Rectangle 154" x="0.527344" y="0.201172" width="110" height="100" rx="15" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_3300_4367)">
+<g id="Group 24">
+<path id="Vector 29" d="M104.2 61.952L101.348 65.2958L93.1473 62.4162L93.4488 57.4122C93.4488 57.4122 92.9878 55.7889 92.4658 54.2614C91.8233 52.3811 91.3799 46.5106 92.9812 45.7072C95.0705 44.659 95.241 53.5022 95.7245 53.5314C96.208 53.5606 98.544 44.2191 100.391 44.5367C102.436 44.8882 99.7399 54.3807 100.526 55.3168C101.039 55.9274 104.08 45.5965 105.848 46.0726C107.809 46.6005 102.366 58.957 104.515 56.7115C106.665 54.4659 110.416 50.8352 111.072 52.5083C111.697 54.1037 109.901 56.5305 107.571 58.2629C105.241 59.9953 104.2 61.952 104.2 61.952Z" fill="url(#paint0_diamond_3300_4367)"/>
+<path id="Ellipse 38" d="M116.472 83.4051C112.744 98.7021 93.4902 112.718 85.9617 110.883C78.4333 109.049 69.6585 88.2026 73.3862 72.9056C77.114 57.6086 86.5577 58.6393 99.7497 61.8541C112.942 65.0688 120.2 68.1082 116.472 83.4051Z" fill="url(#paint1_diamond_3300_4367)"/>
+</g>
+<g id="Group 22">
+<circle id="Ellipse 36" cx="46.2727" cy="77.7573" r="16.9011" transform="rotate(-9.716 46.2727 77.7573)" fill="url(#paint2_diamond_3300_4367)"/>
+<circle id="Ellipse 37" cx="74.3103" cy="88.4813" r="16.9011" transform="rotate(-9.17852 74.3103 88.4813)" fill="url(#paint3_diamond_3300_4367)"/>
+<path id="Vector 28" d="M50.3481 65.84L48.3622 64.8025C48.3622 64.8025 59.3834 55.2583 66.039 47.9711C73.8209 39.4506 86.351 25.7394 86.351 25.7394C86.351 25.7394 85.2814 21.5978 84.5414 20.4232C83.2095 18.309 89.5198 18.812 90.0399 21.6076C90.3438 23.2412 87.7201 26.5281 87.7201 26.5281C87.7201 26.5281 87.2201 43.1576 84.939 53.6446C82.7716 63.6086 79.1463 78.3991 79.1463 78.3991L76.7761 77.3358C76.7761 77.3358 79.2066 71.9015 83.2189 53.2741C86.7046 37.0919 85.7383 28.5842 85.7383 28.5842C85.7383 28.5842 74.8165 41.7033 67.3328 49.8523C60.6151 57.1671 50.3481 65.84 50.3481 65.84Z" fill="url(#paint4_diamond_3300_4367)"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_diamond_3300_4367" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(101.316 54.9415) rotate(115.019) scale(14.6148 13.3658)">
+<stop stop-color="#285446"/>
+<stop offset="1" stop-color="#BADB84"/>
+</radialGradient>
+<radialGradient id="paint1_diamond_3300_4367" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(91.0458 62.8295) rotate(85.4423) scale(41.2899 41.446)">
+<stop offset="0.0811998" stop-color="#FF5050"/>
+<stop offset="1" stop-color="#C92538"/>
+</radialGradient>
+<radialGradient id="paint2_diamond_3300_4367" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(48.3424 72.6014) rotate(98.8199) scale(35.0212 175.859)">
+<stop stop-color="#D50808"/>
+<stop offset="1" stop-color="#680000"/>
+</radialGradient>
+<radialGradient id="paint3_diamond_3300_4367" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(77.2644 80.9179) rotate(95.1295) scale(33.0407 209.031)">
+<stop stop-color="#D50808"/>
+<stop offset="1" stop-color="#680000"/>
+</radialGradient>
+<radialGradient id="paint4_diamond_3300_4367" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(68.7714 47.0906) rotate(102.156) scale(86.5895 48.3009)">
+<stop stop-color="#2B2B2B"/>
+<stop offset="1" stop-color="#670F0F"/>
+</radialGradient>
+</defs>
+</svg>

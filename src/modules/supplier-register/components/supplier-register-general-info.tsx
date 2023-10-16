@@ -33,13 +33,11 @@ export const SupplierRegisterGeneralInfo = React.forwardRef(
     const {
       register,
       handleSubmit,
-      formState: { errors },
+      formState: { errors, isDirty },
       reset,
       resetField,
     } = useForm<SupplierRegisterGeneralInfoFields>({
       mode: "onBlur",
-      shouldUnregister: true,
-      defaultValues: {},
     });
 
     const test = useFormDataContext();
@@ -48,8 +46,7 @@ export const SupplierRegisterGeneralInfo = React.forwardRef(
     const onSuccessfulSubmit: SubmitHandler<any> = (data: any) => {
       console.log(data);
       // setFormData({ ...formData });
-      reset(data);
-      resetField("companyTitle");
+      // reset(data);
       props.formStepChange();
     };
 

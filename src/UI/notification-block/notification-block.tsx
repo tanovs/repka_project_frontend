@@ -4,20 +4,20 @@ import { ReactComponent as CrossIcon } from "../../assets/icons/cross.svg";
 
 export type NotificationBlockProps = {
   text: string;
-  color: "accent" | "warning" | "info";
+  className?: string;
+  color: "accent" | "warning" | "info" | "secondary";
   onClose?: () => void;
 };
 
 export function NotificationBlock({
   color,
   text,
+  className,
   onClose,
 }: NotificationBlockProps) {
   const [notificationColorFrom, notificationColorTo] =
     getNotificationColor(color);
-  const colorClasses = `${"from-[" + notificationColorFrom + "]"} ${
-    "to-[" + notificationColorTo + "]"
-  }`;
+  const colorClasses = `${notificationColorFrom} ${notificationColorTo} bg-gradient-to-l`;
   const [visible, setVisibility] = useState(true);
   const onNotificationClose = () => {
     setVisibility(false);
@@ -30,7 +30,10 @@ export function NotificationBlock({
 
   return (
     <div
-      className={`rounded-2xl ${colorClasses} relative bg-gradient-to-l  px-5 py-3 text-b4_m`}
+      className={
+        `${className || ""} relative rounded-2xl  px-5 py-3 text-b4_m ` +
+        colorClasses
+      }
     >
       <div className="absolute right-2 top-2">
         <ButtonIcon onClick={onNotificationClose}>
@@ -47,10 +50,12 @@ function getNotificationColor(
 ): string[] {
   switch (color) {
     case "accent":
-      return ["#FFF4E4", "#FDD835"];
+      return ["from-[#FFF4E4]", "to-[#FDD835]"];
     case "warning":
-      return ["#FFF4E4", "#F930000"];
+      return ["from-[#FFF4E4]", "to-[#F930000]"];
     case "info":
-      return ["#FFF4E4", "#76CF2F"];
+      return ["from-[#FFF4E4]", "to-[#76CF2F]"];
+    case "secondary":
+      return ["from-[#EAEAEA]", "to-[#EAEAEA]"];
   }
 }

@@ -1,4 +1,6 @@
-import CategoryCard from "../../UI/category-card/category-card";
+import CategoryCard, {
+  CategoryCardProps,
+} from "../../UI/category-card/category-card";
 import { ReactComponent as CheeseIcon } from "../../assets/icons/categories/cheese.svg";
 import { ReactComponent as MeatIcon } from "../../assets/icons/categories/meat.svg";
 import { ReactComponent as ShrimpIcon } from "../../assets/icons/categories/shrimp.svg";
@@ -14,9 +16,142 @@ import { ReactComponent as ChemicalsIcon } from "../../assets/icons/categories/c
 import { ReactComponent as DishesIcon } from "../../assets/icons/categories/dishes.svg";
 import { ReactComponent as EquipmentIcon } from "../../assets/icons/categories/equipment.svg";
 import { ReactComponent as OthersIcon } from "../../assets/icons/categories/others.svg";
+import { ReactComponent as FruitsIcon } from "../../assets/icons/categories/fruits.svg";
+import { ReactComponent as BerriesIcon } from "../../assets/icons/categories/berries.svg";
+import { ReactComponent as FatsIcon } from "../../assets/icons/categories/fats.svg";
+import { ReactComponent as CerealsIcon } from "../../assets/icons/categories/cereals.svg";
+import { ReactComponent as DrinksIcon } from "../../assets/icons/categories/drinks.svg";
+import { ReactComponent as AlcoholIcon } from "../../assets/icons/categories/alcogol.svg";
+import { ReactComponent as DryedFruitsIcon } from "../../assets/icons/categories/dryed-fruits.svg";
+import { ReactComponent as PreservesIcon } from "../../assets/icons/categories/preserves.svg";
+import { ReactComponent as SweetsIcon } from "../../assets/icons/categories/sweets.svg";
 import { ReactComponent as CrossIcon } from "../../assets/icons/cross.svg";
 import { ButtonIcon } from "../../UI/button-icon/button-icon";
 import { useNavigate } from "react-router-dom";
+import { Categories } from "../../components/categories/categories";
+
+export const categories: CategoryCardProps[] = [
+  {
+    title: "Молочные продукты",
+    url: "../categories/milk",
+    children: <CheeseIcon />,
+  },
+  {
+    title: "Рыба / морепродукты",
+    url: "../categories/seafood",
+    children: <ShrimpIcon />,
+  },
+  {
+    title: "Мясо",
+    url: "../categories/seafood",
+    children: <MeatIcon />,
+  },
+  {
+    title: "Яйцо / яичные продукты",
+    url: "../categories/egg",
+    children: <EggIcon />,
+  },
+  {
+    title: "Соевые продукты",
+    url: "../categories/soy",
+    children: <SoyIcon />,
+  },
+  {
+    title: "Овощи",
+    url: "../categories/vegetables",
+    children: <VegetablesIcon />,
+  },
+  {
+    title: "Зелень / травы",
+    url: "../categories/greens",
+    children: <GreensIcon />,
+  },
+  {
+    title: "Фрукты",
+    url: "../categories/greens",
+    children: <FruitsIcon />,
+  },
+  {
+    title: "Ягоды",
+    url: "../categories/greens",
+    children: <BerriesIcon />,
+  },
+  {
+    title: "Грибы",
+    url: "../categories/mushrooms",
+    children: <MushroomsIcon />,
+  },
+  {
+    title: "Орехи",
+    url: "../categories/nuts",
+    children: <NutsIcon />,
+  },
+  {
+    title: "Жиры / масла",
+    url: "../categories/nuts",
+    children: <FatsIcon />,
+  },
+  {
+    title: "Крупы / семена",
+    url: "../categories/nuts",
+    children: <CerealsIcon />,
+  },
+  {
+    title: "Мука / мучные продукты",
+    url: "../categories/milk",
+    children: <BreadIcon />,
+  },
+  {
+    title: "Напитки",
+    url: "../categories/milk",
+    children: <DrinksIcon />,
+  },
+  {
+    title: "Алкоголь",
+    url: "../categories/milk",
+    children: <AlcoholIcon />,
+  },
+  {
+    title: "Сухофрукты",
+    url: "../categories/milk",
+    children: <DryedFruitsIcon />,
+  },
+  {
+    title: "Консервация",
+    url: "../categories/milk",
+    children: <PreservesIcon />,
+  },
+  {
+    title: "Кондитерка",
+    url: "../categories/milk",
+    children: <SweetsIcon />,
+  },
+  {
+    title: "Специи / пряности",
+    url: "../categories/milk",
+    children: <SpicesIcon />,
+  },
+  {
+    title: "Хоз. товары",
+    url: "../categories/milk",
+    children: <ChemicalsIcon />,
+  },
+  {
+    title: "Посуда",
+    url: "../categories/milk",
+    children: <DishesIcon />,
+  },
+  {
+    title: "Оборудование",
+    url: "../categories/milk",
+    children: <EquipmentIcon />,
+  },
+  {
+    title: "Другое",
+    url: "../categories/milk",
+    children: <OthersIcon />,
+  },
+];
 
 export function CategoriesPage() {
   const navigate = useNavigate();
@@ -25,57 +160,11 @@ export function CategoriesPage() {
     <div className="mb-3 rounded-b-2xl bg-basic-0 p-5 pt-0">
       <div className="mb-3 flex items-baseline justify-between">
         <h1 className="text-h1_m text-text-3">Категории</h1>
-        <ButtonIcon hasBackground={true} onClick={() => navigate(-1)}>
+        <ButtonIcon hasBackground={true} onClick={() => navigate("../")}>
           <CrossIcon />
         </ButtonIcon>
       </div>
-      <div className="grid grid-cols-3 gap-3">
-        <CategoryCard title="Молочные продукты" url="../categories/milk">
-          <CheeseIcon />
-        </CategoryCard>
-        <CategoryCard title="Рыба / морепродукты" url="../categories/seafood">
-          <ShrimpIcon />
-        </CategoryCard>
-        <CategoryCard title="Мясо" url="../categories/meat">
-          <MeatIcon />
-        </CategoryCard>
-        <CategoryCard title="Яйцо / яичные продукты" url="../categories/egg">
-          <EggIcon />
-        </CategoryCard>
-        <CategoryCard title="Соевые продукты" url="../categories/soy">
-          <SoyIcon />
-        </CategoryCard>
-        <CategoryCard title="Овощи" url="../categories/vegetables">
-          <VegetablesIcon />
-        </CategoryCard>
-        <CategoryCard title="Зелень / травы" url="../categories/greens">
-          <GreensIcon />
-        </CategoryCard>
-        <CategoryCard title="Грибы" url="../categories/meat">
-          <MushroomsIcon />
-        </CategoryCard>
-        <CategoryCard title="Орехи" url="../categories/meat">
-          <NutsIcon />
-        </CategoryCard>
-        <CategoryCard title="Мука / мучные продукты" url="../categories/meat">
-          <BreadIcon />
-        </CategoryCard>
-        <CategoryCard title="Специи / пряности" url="../categories/meat">
-          <SpicesIcon />
-        </CategoryCard>
-        <CategoryCard title="Хоз. товары" url="../categories/meat">
-          <ChemicalsIcon />
-        </CategoryCard>
-        <CategoryCard title="Посуда" url="../categories/meat">
-          <DishesIcon />
-        </CategoryCard>
-        <CategoryCard title="Оборудование" url="../categories/meat">
-          <EquipmentIcon />
-        </CategoryCard>
-        <CategoryCard title="Другое" url="../categories/meat">
-          <OthersIcon />
-        </CategoryCard>
-      </div>
+      <Categories cardsProps={categories} />
     </div>
   );
 }

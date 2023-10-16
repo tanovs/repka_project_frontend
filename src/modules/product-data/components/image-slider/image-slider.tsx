@@ -3,12 +3,17 @@ import { Carousel, CarouselProps } from "react-responsive-carousel";
 
 export type ImageSliderProps = {
   imageSrc: string[];
+  width?: string | number;
 };
 
-export default function ImageSlider({ imageSrc }: ImageSliderProps) {
+export default function ImageSlider({ imageSrc, width }: ImageSliderProps) {
   const imageTemplates = imageSrc.map((src, index) => (
-    <div key={index}>
-      <img src={src} />
+    <div
+      className="h-96"
+      key={index}
+      style={{ background: `url(${src}) no-repeat center` }}
+    >
+      {/* <img src={src} /> */}
     </div>
   ));
 
@@ -17,17 +22,17 @@ export default function ImageSlider({ imageSrc }: ImageSliderProps) {
     showArrows: false,
     showThumbs: false,
     showStatus: false,
-    dynamicHeight: true,
+    dynamicHeight: false,
+    width,
   };
 
   return (
-    <div>
-      <Carousel
-        className="[&_.control-dots]:px-4 [&_.control-dots]:text-end  [&_.dot.selected]:bg-text-3 "
-        {...carouselConfig}
-      >
-        {imageTemplates}
-      </Carousel>
-    </div>
+    <Carousel
+      className=" [&_.control-dots]:px-4  [&_.control-dots]:text-end [&_.dot.selected]:bg-text-3"
+      {...carouselConfig}
+      width={"100vw"}
+    >
+      {imageTemplates}
+    </Carousel>
   );
 }

@@ -1,6 +1,8 @@
 import { ButtonIcon } from "../../UI/button-icon/button-icon";
 import Checkbox from "../../UI/checkbox/checkbox";
 import Chip from "../../UI/chip/chip";
+import { RadioGroup, RadioGroupProps } from "../../UI/radio-group/radio-group";
+import { RepkaRadioButton } from "../../UI/repka-radio-button/repka-radio-button";
 import { ReactComponent as SchevronIcon } from "../../assets/icons/schevron.svg";
 
 export type MainFiltersProps = {
@@ -12,6 +14,25 @@ export default function MainFilters({
   visible,
   setVisibility,
 }: MainFiltersProps) {
+  const radioFilterOptions: RadioGroupProps["options"] = [
+    {
+      id: "0",
+      label: "По умолчанию",
+    },
+    {
+      id: "1",
+      label: "От самой низкой цены",
+    },
+    {
+      id: "2",
+      label: "От самой высокой цены",
+    },
+    {
+      id: "3",
+      label: "С рейтингом",
+    },
+  ];
+
   return (
     <div
       className={`absolute top-0 z-[2] h-[100vh] w-full bg-basic-1 text-start transition-all ${
@@ -31,7 +52,7 @@ export default function MainFilters({
         </div>
         <div className="leading-10">
           <Chip state="secondary" text="Москва"></Chip>
-          <Chip state="primary" text="Санкт-Петербург"></Chip>
+          <Chip state="secondary" text="Санкт-Петербург"></Chip>
           <Chip state="secondary" text="Новосибирск"></Chip>
         </div>
         <div className="mb-4 mt-7 text-h2_m text-text-3">
@@ -39,7 +60,7 @@ export default function MainFilters({
         </div>
         <div className="leading-10">
           <Chip state="secondary" text="Ленинградская область"></Chip>
-          <Chip state="primary" text="Московская область"></Chip>
+          <Chip state="secondary" text="Московская область"></Chip>
           <Chip state="secondary" text="Свердловская область"></Chip>
           <Chip state="secondary" text="Новосибирская область"></Chip>
           <Chip state="secondary" text="Саратовская область"></Chip>
@@ -48,18 +69,11 @@ export default function MainFilters({
       <div className="my-3 w-full rounded-2xl bg-basic-0 p-5">
         <div className="mb-4 mt-2 text-h2_m text-text-3">Показать сначала</div>
         <div>
-          <Checkbox checked={true} text="По умолчанию" onChange={() => {}} />
-          <Checkbox
-            checked={false}
-            text="От самой низкой цены"
-            onChange={() => {}}
+          <RadioGroup
+            groupName="filters"
+            options={radioFilterOptions}
+            onOptionChosen={() => {}}
           />
-          <Checkbox
-            checked={false}
-            text="От самой высокой цены"
-            onChange={() => {}}
-          />
-          <Checkbox checked={false} text="С рейтингом" onChange={() => {}} />
         </div>
       </div>
     </div>
