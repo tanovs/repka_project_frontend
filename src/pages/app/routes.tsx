@@ -26,24 +26,24 @@ import SupplierDocumentUploadPage from "../supplier-document-upload-page/supplie
 import SupplierProductAddPage from "../supplier-product-add-page/supplier-product-add-page";
 
 // TODO изменить на createBrowserRouter когда переедем на хостинг
-export const routes = createHashRouter(
+export const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="" element={<MainPage />}>
         <Route path="" element={<HomePage />}></Route>
         <Route path="categories" element={<CategoriesPage />}></Route>
-        <Route
-          path="categories/:categoryId"
-          element={<ProductListPage />}
-        ></Route>
         <Route path="search" element={<SearchResults />}></Route>
-        <Route path="supplier/:supplierId" element={<SupplierPage />}></Route>
-        <Route
-          path="supplier/:supplierId/products"
-          element={<ProductListPage />}
-        ></Route>
-        <Route path="product" element={<ProductPage />}></Route>
       </Route>
+      <Route
+        path="categories/:categoryId"
+        element={<ProductListPage />}
+      ></Route>
+      <Route path="supplier/:supplierId" element={<SupplierPage />}></Route>
+      <Route
+        path="supplier/:supplierId/products"
+        element={<ProductListPage />}
+      ></Route>
+      <Route path="product" element={<ProductPage />}></Route>
       <Route path="cart" element={<CartPage />}>
         <Route path="" element={<Cart />}></Route>
         <Route path="checkout" element={<Checkout />}></Route>

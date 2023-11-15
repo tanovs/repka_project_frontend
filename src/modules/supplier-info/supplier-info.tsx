@@ -16,7 +16,7 @@ export function SupplierInfo({ id: supplierId }: SupplierInfoProps) {
     imageUrl: "../src/assets/images/card-background.png",
     logoUrl: "../src/assets/images/supplier-logo.png",
     onBackButtonClick: () => navigate(-1),
-    onSearchButtonClick: () => undefined,
+    onSearchButtonClick: () => navigate("/search"),
   };
 
   const navigate = useNavigate();

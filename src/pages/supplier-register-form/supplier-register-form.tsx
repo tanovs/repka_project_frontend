@@ -65,7 +65,7 @@ export default function SupplierRegisterForm() {
   const childRef = useRef<{ submitForm: () => void }>();
 
   return (
-    <div className="h-full w-full bg-[#F4F4F4] pt-beforeContent">
+    <div className="h-screen w-full bg-[#F4F4F4] pt-beforeContent">
       <div className="mb-24 h-full w-full rounded-t-2xl bg-basic-0">
         <HeaderWithButtons
           title="Стать поставщиком"

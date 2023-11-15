@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ButtonIcon } from "../../UI/button-icon/button-icon";
 import { ButtonText } from "../../UI/button-text/button-text";
 import { PopupMenu } from "../../UI/popup-menu/popup-menu";
@@ -9,9 +9,12 @@ import { ReactComponent as StoreIcon } from "../../assets/icons/store.svg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 
 export type SearchBarProps = {
+  searchValue: string;
+  searchActive: boolean;
   onSearchFocus: (isFocus: boolean) => void;
   onSearchInputChange: (searchTerm: string) => void;
   onFiltersButtonClick: () => void;
+  onCancelSearch: () => void;
   chooseSearchType: (type: SearchForEntities) => void;
 };
 
@@ -22,18 +25,16 @@ export enum SearchForEntities {
 }
 
 export default function SearchBar({
+  searchValue,
+  searchActive,
   onSearchFocus,
   onSearchInputChange,
   onFiltersButtonClick,
+  onCancelSearch,
   chooseSearchType,
 }: SearchBarProps) {
-  const [searchFocused, setSearchFocused] = useState(false);
   const [popupMenuVisible, setPopupMenuVisible] = useState(false);
-
-  const focusSearch = (isFocus: boolean): void => {
-    onSearchFocus(isFocus);
-    setSearchFocused(isFocus);
-  };
+  const activeMode = !!(searchValue || searchActive);
 
   function onSearchTypeChoose(typeId: string): void {
     setPopupMenuVisible(false);
@@ -59,8 +60,8 @@ export default function SearchBar({
   ];
 
   return (
-    <div className="search-block sticky top-0 z-[1] flex w-full items-center bg-basic-0 p-5">
-      {searchFocused && (
+    <div className="search-block sticky top-0 z-[1] flex w-full items-center gap-2 bg-basic-0 p-5">
+      {activeMode && (
         <PopupMenu
           visible={popupMenuVisible}
           items={popupMenuItems}
@@ -77,13 +78,14 @@ export default function SearchBar({
         </PopupMenu>
       )}
       <SearchInput
-        onFocus={() => focusSearch(true)}
+        value={searchValue}
+        onFocusChange={onSearchFocus}
         onChange={onSearchInputChange}
       />
 
-      {searchFocused ? (
+      {activeMode ? (
         <div className="ml-1">
-          <ButtonText onClick={() => focusSearch(false)} text="Отменить" />
+          <ButtonText onClick={onCancelSearch} text="Отменить" />
         </div>
       ) : (
         <ButtonIcon

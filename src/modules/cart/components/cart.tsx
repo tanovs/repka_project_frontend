@@ -1,7 +1,9 @@
 import { CartOrder, CartOrderProps } from "./cart-order/cart-order";
 import { HeaderWithButtons } from "../../../UI/header-with-back-button/header-with-back-button";
+import { useNavigate } from "react-router-dom";
 
 export function Cart() {
+  const navigate = useNavigate();
   const ordersTemplate = (orderProps: CartOrderProps, key: number) => (
     <div className="my-2" key={key}>
       <CartOrder {...orderProps} />
@@ -37,7 +39,10 @@ export function Cart() {
 
   return (
     <div className="w-full rounded-t-2xl bg-basic-1 shadow-upper">
-      <HeaderWithButtons title="Корзина" onLeftButtonClick={() => {}} />
+      <HeaderWithButtons
+        title="Корзина"
+        onLeftButtonClick={() => navigate("../")}
+      />
       {orders}
     </div>
   );

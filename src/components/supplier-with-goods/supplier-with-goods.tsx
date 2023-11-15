@@ -22,7 +22,7 @@ export function SupplierWithGoods({
       <div>
         <div
           className="flex h-12 items-center justify-between text-start text-b1_m text-text-3"
-          onClick={() => navigate("./products")}
+          onClick={() => navigate(`/supplier/${supplierId}/products`)}
         >
           {supplierName}
           <ButtonIcon hasBackground={true}>

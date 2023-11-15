@@ -2,7 +2,7 @@ import ProductData from "../../modules/product-data";
 
 export default function ProductPage() {
   return (
-    <div className="absolute z-[1] h-[90vh] w-full bg-basic-0 pb-36">
+    <div className="h-screen w-full bg-basic-0 pt-4">
       <ProductData />
     </div>
   );

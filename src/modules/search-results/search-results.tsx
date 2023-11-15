@@ -1,14 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import SupplierWithGoods, {
   SupplierWithGoodsProps,
 } from "../../components/supplier-with-goods";
+import { useEffect, useState } from "react";
+import { searchTermParam } from "../search/";
 
 export default function SearchResults() {
-  const navigate = useNavigate();
-
-  function goToSupplierPage(supplierId: string): void {
-    navigate(`/suplier/${supplierId}`);
-  }
+  const [searchParams] = useSearchParams();
+  const [resultsVisible, setResultsVisible] = useState(false);
+  useEffect(() => {
+    setResultsVisible(!!searchParams.get(searchTermParam));
+  }, [searchParams]);
 
   const suppliersPropsFirst: SupplierWithGoodsProps[] = [
     {
@@ -75,16 +77,22 @@ export default function SearchResults() {
     },
   ];
   return (
-    <div className="px-5">
-      <div className="flex h-20 items-center text-h1_m text-text-3">Товары</div>
-      <div>
-        {suppliersPropsFirst.map((supplier) => (
-          <SupplierWithGoods {...supplier} key={supplier.id} />
-        ))}
-        {suppliersPropsSecond.map((supplier) => (
-          <SupplierWithGoods {...supplier} key={supplier.id} />
-        ))}
-      </div>
-    </div>
+    <>
+      {resultsVisible && (
+        <div className="px-5">
+          <div className="flex h-20 items-center text-h1_m text-text-3">
+            Товары
+          </div>
+          <div>
+            {suppliersPropsFirst.map((supplier) => (
+              <SupplierWithGoods {...supplier} key={supplier.id} />
+            ))}
+            {suppliersPropsSecond.map((supplier) => (
+              <SupplierWithGoods {...supplier} key={supplier.id} />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

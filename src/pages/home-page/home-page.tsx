@@ -51,7 +51,7 @@ export function HomePage() {
           <SupplierCard {...supplierCardPropsSecond} />
         </div>
       </div>
-      <div className="fixed bottom-0 w-full px-5 pb-4">
+      <div className="sticky bottom-0 w-full px-5 pb-4">
         <WideButton
           className="bg-[#FFFFFFF2] shadow-upper"
           primaryText="Стать поставщиком"

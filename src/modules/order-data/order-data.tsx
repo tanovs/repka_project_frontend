@@ -27,13 +27,13 @@ export default function OrderData() {
       <div className="rounded-2xl bg-basic-0 pb-5 shadow-upper">
         <HeaderWithButtons
           title="Данные заказа"
-          onLeftButtonClick={() => navigate("./cart")}
+          onLeftButtonClick={() => navigate("/cart")}
         />
         <div className="mt-5 px-5">
           <SupplierLabel
             supplierId="1"
             supplierName="Karelia Vegetarian"
-            logoSrc="../src/assets/images/supplier-logo.png"
+            logoSrc="/assets/images/supplier-logo.png"
             small
           />
           <CartItemProduct {...orderedGood} readonly />

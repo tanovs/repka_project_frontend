@@ -64,7 +64,7 @@ export default function ProductListPage() {
           className="mb-4"
           title="Товары поставщика"
           onLeftButtonClick={() => navigate(-1)}
-          onRightButtonClick={() => {}}
+          onRightButtonClick={() => navigate("/search")}
         >
           <SearchIcon className="rotate-90" />
         </HeaderWithButtons>
