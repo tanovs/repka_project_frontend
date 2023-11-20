@@ -1,0 +1,9 @@
+.button_container {
+  line-height: 1rem;
+  button {
+    line-height: inherit;
+  }
+  div {
+    min-width: 1.5rem;
+  }
+}
