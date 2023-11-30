@@ -5,6 +5,7 @@ import AddProductForm from "./components/add-product-form";
 import { useContext, useState } from "react";
 import { ReactComponent as SchevronIcon } from "../../assets/icons/schevron.svg";
 import { ConfirmDialogContext } from "../../pages/supplier-register-wrapper/supplier-register-wrapper";
+import WideButton from "../../UI/wide-button/wide-button";
 
 export default function SupplierRegisterAddProduct() {
   const navigate = useNavigate();
@@ -68,6 +69,15 @@ export default function SupplierRegisterAddProduct() {
           />
         </div>
       ))}
+
+      <div className="sticky bottom-0 w-full rounded-t-2xl bg-basic-0 p-5 pb-7">
+        <WideButton
+          className="w-full"
+          color="primary"
+          primaryText="Отправить форму"
+          onClick={() => skipDialogContext(true)}
+        />
+      </div>
     </>
   );
 }

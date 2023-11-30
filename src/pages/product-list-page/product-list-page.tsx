@@ -1,34 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chip, { ChipProps } from "../../UI/chip/chip";
 import ChipsWrapped from "../../UI/chips-wrapped/chips-wrapped";
 import { HeaderWithButtons } from "../../UI/header-with-back-button/header-with-back-button";
 import SmallGoodsCard from "../../UI/small-goods-card/small-goods-card";
-import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { HeaderTags } from "../../components/header-tags/header-tags";
+import { Tag } from "../../shared/models/tag.model";
+import { getAllTags, getCategoriesTag } from "../../shared/api/tags";
+import { getAllCategories } from "@/shared/api/categories";
 
 export default function ProductListPage() {
-  const navigate = useNavigate();
-  const categoryChips = [
-    "Молоко",
-    "Сыр",
-    "Йогурт",
-    "Творог",
-    "Кефир",
-    "Сметана",
-  ].map((category, indx) => {
-    const [chipState, setChipState] = useState<ChipProps["state"]>("secondary");
+  const { categoryId } = useParams();
+  const [tags, setTags] = useState<Tag[]>([]);
+  const [headerTitle, setHeaderTitle] = useState<string>("");
 
-    return (
-      <Chip
-        key={indx}
-        text={category}
-        state={chipState}
-        onClick={() =>
-          setChipState(chipState === "secondary" ? "primary" : "secondary")
-        }
-      />
-    );
-  });
+  useEffect(() => {
+    if (!categoryId) {
+      throw Error("No URL categoryId param!");
+    }
+    getCategoriesTag(categoryId).then((res) => setTags(res.data.tags));
+  }, []);
+
+  useEffect(() => {
+    getAllCategories().then((res) => {
+      const title = res.data.categories.find(
+        (category) => category.id === categoryId
+      )?.category_name;
+      if (title) {
+        setHeaderTitle(title);
+      }
+    });
+  }, []);
 
   const supplierGoods = [
     {
@@ -59,17 +61,13 @@ export default function ProductListPage() {
 
   return (
     <div>
-      <div className="mb-3 rounded-b-2xl bg-basic-0 pb-5">
-        <HeaderWithButtons
-          className="mb-4"
-          title="Товары поставщика"
-          onLeftButtonClick={() => navigate(-1)}
-          onRightButtonClick={() => navigate("/search")}
-        >
-          <SearchIcon className="rotate-90" />
-        </HeaderWithButtons>
-        <ChipsWrapped className="px-5">{categoryChips}</ChipsWrapped>
-      </div>
+      <HeaderTags
+        // TODO change
+        headerTitle={headerTitle}
+        tags={tags}
+        tagsIdSelected={[]}
+        onSelectedTagsChange={(tags) => console.log(tags)}
+      />
       <div className="rounded-2xl bg-basic-0 p-5">
         <div className="mb-5 mt-2 text-h2_m text-text-3">Сыр</div>
         <div className="grid grid-cols-3 gap-3">

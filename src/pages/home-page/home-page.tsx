@@ -1,15 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as SchevronIcon } from "../../assets/icons/schevron.svg";
-import CategoryCard from "../../UI/category-card/category-card";
 import SupplierCard, {
   SupplierCardProps,
 } from "../../UI/supplier-card/supplier-card";
-import { ReactComponent as CheeseIcon } from "../../assets/icons/categories/cheese.svg";
-import { ReactComponent as MeatIcon } from "../../assets/icons/categories/meat.svg";
-import { ReactComponent as ShrimpIcon } from "../../assets/icons/categories/shrimp.svg";
-import { Categories } from "../../components/categories/categories";
-import { categories } from "../categories-page/categories-page";
-import WideButton from "../../UI/wide-button/wide-button";
+import Categories from "@/modules/categories";
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -40,7 +34,8 @@ export function HomePage() {
             <SchevronIcon className="inline w-[1em] -rotate-90" />
           </Link>
         </div>
-        <Categories cardsProps={categories} scrollable />
+        {/* <CategoriesBar cardsProps={categories} scrollable /> */}
+        <Categories scrollable />
       </div>
       <div className="rounded-t-2xl bg-basic-0 p-5">
         <h1 className="mb-2 text-start text-h1_m text-text-3">Поставщики</h1>
@@ -50,13 +45,9 @@ export function HomePage() {
         <div className="mb-7">
           <SupplierCard {...supplierCardPropsSecond} />
         </div>
-      </div>
-      <div className="sticky bottom-0 w-full px-5 pb-4">
-        <WideButton
-          className="bg-[#FFFFFFF2] shadow-upper"
-          primaryText="Стать поставщиком"
-          onClick={() => navigate("/supplier-sign-up/welcome")}
-        />
+        <div className="mb-7">
+          <SupplierCard {...supplierCardPropsSecond} />
+        </div>
       </div>
     </div>
   );

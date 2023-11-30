@@ -5,14 +5,16 @@ import { useNavigate } from "react-router-dom";
 export type CategoryCardProps = {
   title: string;
   url: string;
-  children: React.ReactNode;
+  iconUrl: string;
+  // children: React.ReactNode;
 };
 
 export default function CategoryCard({
   title,
   url,
-  children,
-}: CategoryCardProps) {
+  iconUrl,
+}: // children,
+CategoryCardProps) {
   const navigate = useNavigate();
 
   return (
@@ -22,8 +24,8 @@ export default function CategoryCard({
     >
       {title}
       <div className="absolute -bottom-1 -right-2">
-        {/* <img src={iconUrl} alt="Изображение категории" /> */}
-        {children}
+        <img src={iconUrl} alt="Изображение категории" />
+        {/* {children} */}
       </div>
     </div>
   );

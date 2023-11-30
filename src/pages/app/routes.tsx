@@ -25,7 +25,6 @@ import SupplierRegistrationComplete from "../supplier-registration-complete/supp
 import SupplierDocumentUploadPage from "../supplier-document-upload-page/supplier-document-upload-page";
 import SupplierProductAddPage from "../supplier-product-add-page/supplier-product-add-page";
 
-// TODO изменить на createBrowserRouter когда переедем на хостинг
 export const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route>
