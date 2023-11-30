@@ -1,19 +1,19 @@
 import React from "react";
 import CategoryCard, {
   CategoryCardProps,
-} from "../../UI/category-card/category-card";
+} from "../../../UI/category-card/category-card";
 
-export type CategoriesProps = {
+export type CategoriesBarProps = {
   cardsProps: CategoryCardProps[];
   scrollable?: boolean;
   className?: string;
 };
 
-export function Categories({
+export function CategoriesBar({
   cardsProps,
   scrollable,
   className = "",
-}: CategoriesProps) {
+}: CategoriesBarProps) {
   return (
     <div className={className}>
       <div
@@ -24,9 +24,7 @@ export function Categories({
         }
       >
         {cardsProps.map((cardProps, indx) => (
-          <CategoryCard key={indx} title={cardProps.title} url={cardProps.url}>
-            {cardProps.children}
-          </CategoryCard>
+          <CategoryCard key={indx} {...cardProps} />
         ))}
       </div>
     </div>

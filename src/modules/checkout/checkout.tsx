@@ -128,7 +128,7 @@ export function Checkout() {
           text="Оплатить, как физическое лицо"
           onChange={() => setPayAsPhys(!payAsPhys)}
         />
-        {payAsPhys && (
+        {!payAsPhys && (
           <>
             <InputWithTitle
               className="mt-4"

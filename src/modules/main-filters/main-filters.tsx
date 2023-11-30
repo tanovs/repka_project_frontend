@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ButtonIcon } from "../../UI/button-icon/button-icon";
 import Checkbox from "../../UI/checkbox/checkbox";
 import Chip from "../../UI/chip/chip";
@@ -33,9 +34,13 @@ export default function MainFilters({
     },
   ];
 
+  useEffect(() => {
+    document.body.style.overflowY = visible ? "hidden" : "auto";
+  }, [visible]);
+
   return (
     <div
-      className={`absolute top-0 z-[2] h-[100vh] w-full bg-basic-1 text-start transition-all ${
+      className={`fixed top-0 z-[2] h-screen w-full bg-basic-1 text-start transition-all ${
         visible ? "left-0" : "left-full"
       }`}
     >

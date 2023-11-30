@@ -15,8 +15,8 @@ export default function RepkaHeader() {
     <div
       className={
         headerVisibility
-          ? "relative h-12 transition-all"
-          : "relative h-0 transition-all"
+          ? "relative h-12 bg-basic-1 transition-all"
+          : "relative h-0 bg-basic-1 transition-all"
       }
     >
       <div className="w-full bg-[#F4F4F4]">
