@@ -1,9 +1,12 @@
-import SupplierInfo from "../../modules/supplier-info";
-import SupplierWithGoods, {
+import SupplierInfo from "../../modules/supplier-full-info-display";
+import SupplierAndGoodsBlock, {
   SupplierWithGoodsProps,
-} from "../../components/supplier-with-goods";
+} from "../../components/supplier-and-goods-block";
+import SupplierFullInfoDisplay from "../../modules/supplier-full-info-display";
+import { useParams } from "react-router-dom";
 
 export function SupplierPage() {
+  const { supplierId } = useParams();
   const suppliersPropsFirst: SupplierWithGoodsProps = {
     name: "Товары поставщика",
     id: "id1",
@@ -58,12 +61,12 @@ export function SupplierPage() {
       },
     ],
   };
+  if (!supplierId) {
+    return null;
+  }
   return (
     <div className="absolute top-0 z-[1] w-full">
-      <SupplierInfo id="2" />
-      <div className="mt-2 rounded-2xl bg-basic-0 p-6">
-        <SupplierWithGoods {...suppliersPropsFirst} />
-      </div>
+      <SupplierFullInfoDisplay supplierId={supplierId} />
     </div>
   );
 }

@@ -4,17 +4,17 @@ import SmallGoodsCard from "../../UI/small-goods-card/small-goods-card";
 import { SmallGoodsCardProps } from "../../UI/small-goods-card/small-goods-card";
 import { ReactComponent as ChevronIcon } from "../../assets/icons/schevron.svg";
 
-export type SupplierWithGoodsProps = {
+export type SupplierAndGoodsBlockProps = {
   id: string;
   name: string;
   goods: SmallGoodsCardProps[];
 };
 
-export function SupplierWithGoods({
+export function SupplierAndGoodsBlock({
   id: supplierId,
   name: supplierName,
   goods: supplierGoods,
-}: SupplierWithGoodsProps) {
+}: SupplierAndGoodsBlockProps) {
   const navigate = useNavigate();
 
   return (

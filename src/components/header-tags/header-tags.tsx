@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import ChipsWrapped from "../../UI/chips-wrapped/chips-wrapped";
 import { HeaderWithButtons } from "../../UI/header-with-back-button/header-with-back-button";
-import { Tag } from "../../shared/models/tag.model";
-import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+import { TagCategory } from "../../shared/models/tag.model";
+import { ReactComponent as SearchIcon } from "@/assets/icons/search.svg";
 import { useEffect, useRef, useState } from "react";
 import { ClickableChip } from "../../UI/clickable-chip/clickable-chip";
 
-export type HeaderTagsType = {
+export type HeaderTagsProps = {
   headerTitle: string;
-  tags: Tag[];
+  tags: TagCategory[];
   tagsIdSelected: string[];
-  onSelectedTagsChange: (tagIds: string[]) => void;
+  onSelectedTagsChange: (tags: TagCategory[]) => void;
 };
 
 export function HeaderTags({
@@ -18,16 +18,17 @@ export function HeaderTags({
   tags,
   tagsIdSelected,
   onSelectedTagsChange,
-}: HeaderTagsType) {
+}: HeaderTagsProps) {
   const navigate = useNavigate();
   const [tagChips, setTagChips] = useState<JSX.Element[]>([]);
-  const chosenTagsArr = useRef<string[]>(tagsIdSelected);
+  // TODO initial tag
+  const chosenTagsArr = useRef<TagCategory[]>([]);
 
-  const onTagSelect = (selected: boolean, tagId: string) => {
+  const onTagSelect = (selected: boolean, tag: TagCategory) => {
     if (selected) {
-      chosenTagsArr.current.push(tagId);
+      chosenTagsArr.current.push(tag);
     } else {
-      const indexToDelete = chosenTagsArr.current.indexOf(tagId);
+      const indexToDelete = chosenTagsArr.current.indexOf(tag);
       indexToDelete !== -1 && chosenTagsArr.current.splice(indexToDelete, 1);
     }
     onSelectedTagsChange(chosenTagsArr.current);
@@ -42,7 +43,7 @@ export function HeaderTags({
           key={indx}
           text={tag.tag_name}
           initialState={selected ? "primary" : "secondary"}
-          stateChange={(selected) => onTagSelect(selected, tag.id)}
+          stateChange={(selected) => onTagSelect(selected, tag)}
         />
       );
     });

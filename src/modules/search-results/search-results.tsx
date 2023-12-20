@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import SupplierWithGoods, {
+import SupplierAndGoodsBlock, {
   SupplierWithGoodsProps,
-} from "../../components/supplier-with-goods";
+} from "../../components/supplier-and-goods-block";
 import { useEffect, useState } from "react";
 import { searchTermParam } from "../search/";
 
@@ -85,10 +85,10 @@ export default function SearchResults() {
           </div>
           <div>
             {suppliersPropsFirst.map((supplier) => (
-              <SupplierWithGoods {...supplier} key={supplier.id} />
+              <SupplierAndGoodsBlock {...supplier} key={supplier.id} />
             ))}
             {suppliersPropsSecond.map((supplier) => (
-              <SupplierWithGoods {...supplier} key={supplier.id} />
+              <SupplierAndGoodsBlock {...supplier} key={supplier.id} />
             ))}
           </div>
         </div>
