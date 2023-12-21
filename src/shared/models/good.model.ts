@@ -4,3 +4,13 @@ export type GoodBase = {
   volume: string;
   price: string;
 };
+
+export type GoodFull = Omit<GoodBase, "id"> & {
+  balance: string;
+  calories: string;
+  compound: string;
+  expiration_day: string;
+  producer: string;
+  sample: boolean;
+  sample_amount?: number;
+};

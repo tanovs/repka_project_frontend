@@ -3,6 +3,7 @@ import { ButtonIcon } from "../../UI/button-icon/button-icon";
 import SmallGoodsCard from "../../UI/small-goods-card/small-goods-card";
 import { SmallGoodsCardProps } from "../../UI/small-goods-card/small-goods-card";
 import { ReactComponent as ChevronIcon } from "../../assets/icons/schevron.svg";
+import { SmallGoodsCardsBlock } from "../small-goods-cards-block/small-goods-cards-block";
 
 export type SupplierAndGoodsBlockProps = {
   id: string;
@@ -29,11 +30,7 @@ export function SupplierAndGoodsBlock({
             <ChevronIcon className="-rotate-90"></ChevronIcon>
           </ButtonIcon>
         </div>
-        <div className="grid grid-cols-3 gap-3">
-          {supplierGoods.map((goodProps) => (
-            <SmallGoodsCard {...goodProps} key={goodProps.id} />
-          ))}
-        </div>
+        <SmallGoodsCardsBlock goods={supplierGoods} />
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import { searchByGoods } from "@/shared/api/search";
 import { SupplierWithGoods } from "@/shared/models/supplier.model";
 import { TagCategory } from "@/shared/models/tag.model";
 import { useEffect, useState } from "react";
-import { SuppliersWithTag } from "./suppliers-with-tag";
+import { SuppliersWithTag, SuppliersWithTagProps } from "./suppliers-with-tag";
 import { getProductPicture } from "@/shared/api/pictures";
 import {
   SupplierAndGoodsBlock,
@@ -23,7 +23,7 @@ export function SupplierWithGoodsSearch({
 }: SupplierWithGoodsSearchProps) {
   const [searchByTagsMode, setSearchByTags] = useState(!!tags?.length);
   const [resultsByTag, setResultsByTag] = useState<
-    [string, SupplierWithGoods[]][]
+    [string, SupplierAndGoodsBlockProps[]][]
   >([]);
   const [defaultSearchResults, setDefaultSerachResults] = useState<
     SupplierAndGoodsBlockProps[]
@@ -43,14 +43,23 @@ export function SupplierWithGoodsSearch({
       })
     );
 
-    Promise.all(searches).then((searchResults) => {
-      const tagToResults: [string, SupplierWithGoods[]][] = searchResults
-        .filter((res) => !!res.data.length)
-        .map((res, index) => {
-          return [(tags || [])[index]?.tag_name || "", res.data];
-        });
-      setResultsByTag([...tagToResults]);
-    });
+    Promise.all(searches)
+      .then((searchResults) => {
+        return Promise.all(
+          searchResults.map((supplier) =>
+            transformSupplierSearchToSupplierGoodsBlockProps(supplier.data)
+          )
+        );
+      })
+      .then((supplierWithGoodsProps) => {
+        const tagToResults: [string, SupplierAndGoodsBlockProps[]][] =
+          supplierWithGoodsProps
+            .filter((res) => !!res.length)
+            .map((res, index) => {
+              return [(tags || [])[index]?.tag_name || "", res];
+            });
+        setResultsByTag([...tagToResults]);
+      });
   };
 
   const defaultSearch = () => {
@@ -81,7 +90,7 @@ export function SupplierWithGoodsSearch({
       )}
     </div>
   ) : (
-    <div>
+    <div className="flex flex-col gap-5 py-5">
       {defaultSearchResults.length ? (
         defaultSearchResults.map((supplierProps) => (
           <SupplierAndGoodsBlock {...supplierProps} />

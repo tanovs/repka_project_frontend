@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MainFilters } from "../../modules/main-filters";
 import { Search } from "../../modules/search/search";
 import RepkaHeader from "../../components/repka-header/repka-header";
@@ -7,13 +7,23 @@ import WideButton from "../../UI/wide-button/wide-button";
 
 export function MainPage() {
   const [filtersVisible, setFiltersVisibility] = useState(false);
+  const [pathName, setPathName] = useState<string | undefined>();
   const navigate = useNavigate();
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === "" || path === "/") {
+      setPathName(undefined);
+    } else {
+      setPathName(path);
+    }
+  }, [window.location.pathname]);
 
   return (
     <>
-      <div className="relative max-h-[100vh] w-full bg-basic-0">
+      <div className="relative -mb-[66px] h-screen max-h-[100vh] w-full overflow-auto bg-basic-0">
         <RepkaHeader />
-        <Search onSetFiltersVisibility={setFiltersVisibility} />
+        {/* <Search onSetFiltersVisibility={setFiltersVisibility} /> */}
+        <div className="h-3"></div>
         <MainFilters
           visible={filtersVisible}
           setVisibility={setFiltersVisibility}
@@ -22,6 +32,8 @@ export function MainPage() {
         <div>
           <Outlet />
         </div>
+      </div>
+      {!pathName && (
         <div className="sticky bottom-0 w-full px-5 pb-4">
           <WideButton
             className="bg-[#FFFFFFF2] shadow-upper"
@@ -32,7 +44,7 @@ export function MainPage() {
             }
           />
         </div>
-      </div>
+      )}
     </>
   );
 }

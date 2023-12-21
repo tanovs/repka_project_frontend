@@ -24,6 +24,7 @@ import SupplierRegisterWrapper from "../supplier-register-wrapper/supplier-regis
 import SupplierRegistrationComplete from "../supplier-registration-complete/supplier-registration-complete";
 import SupplierDocumentUploadPage from "../supplier-document-upload-page/supplier-document-upload-page";
 import SupplierProductAddPage from "../supplier-product-add-page/supplier-product-add-page";
+import SupplierProductListPage from "../supplier-product-list-page/supplier-product-list-page";
 
 export const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -40,9 +41,9 @@ export const routes = createBrowserRouter(
       <Route path="supplier/:supplierId" element={<SupplierPage />}></Route>
       <Route
         path="supplier/:supplierId/products"
-        element={<ProductListPage />}
+        element={<SupplierProductListPage />}
       ></Route>
-      <Route path="product" element={<ProductPage />}></Route>
+      <Route path="product/:productId" element={<ProductPage />}></Route>
       <Route path="cart" element={<CartPage />}>
         <Route path="" element={<Cart />}></Route>
         <Route path="checkout" element={<Checkout />}></Route>

@@ -11,6 +11,7 @@ export type SmallGoodsCardProps = {
 };
 
 export default function SmallGoodsCard({
+  id,
   editMode,
   title,
   price,
@@ -22,7 +23,7 @@ export default function SmallGoodsCard({
   return (
     <div
       className="h-40 w-full rounded-2xl bg-basic-0 drop-shadow-md"
-      onClick={() => navigate("/product")}
+      onClick={() => navigate(`/product/${id}`)}
     >
       <div
         style={{ backgroundImage: `url('${imageUrl}')` }}

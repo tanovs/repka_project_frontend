@@ -32,7 +32,7 @@ export default function ProductListPage() {
   }, []);
 
   return (
-    <div>
+    <div className="h-screen overflow-auto">
       <HeaderTags
         // TODO change
         headerTitle={headerTitle}
@@ -40,7 +40,7 @@ export default function ProductListPage() {
         tagsIdSelected={[]}
         onSelectedTagsChange={(tagArr) => setChosenTags([...tagArr])}
       />
-      <div className="rounded-2xl bg-basic-0 p-5">
+      <div className="rounded-2xl bg-basic-0 px-5">
         <SupplierWithGoodsSearch categoryId={categoryId} tags={chosenTags} />
       </div>
     </div>

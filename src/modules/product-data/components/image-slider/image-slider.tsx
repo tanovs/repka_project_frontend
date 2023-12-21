@@ -30,7 +30,7 @@ export default function ImageSlider({ imageSrc, width }: ImageSliderProps) {
     <Carousel
       className=" [&_.control-dots]:px-4  [&_.control-dots]:text-end [&_.dot.selected]:bg-text-3"
       {...carouselConfig}
-      width={"100vw"}
+      width={"100%"}
     >
       {imageTemplates}
     </Carousel>

@@ -46,19 +46,28 @@ export const getSupplierDocuments = (id: string) =>
   api.get<SupplierDocuments>(`${SUPPLIER_BASE}/documents/${id}`);
 
 export const getSupplierProducts = (id: string, size: number) =>
-  api.get<GoodBase[]>(`${SUPPLIER_BASE}/good/${id}`, {
-    params: {
-      size,
-    },
-  });
+  api
+    .get<GoodBase[]>(`${SUPPLIER_BASE}/good/${id}`, {
+      params: {
+        size,
+      },
+    })
+    // TODO remove
+    .catch(() => ({ data: goodsBaseMock.slice(0, size) }));
 
 export const getSupplierTags = (id: string) =>
-  api.get<TagBase[]>(`${SUPPLIER_BASE}/tag/${id}`);
+  api
+    .get<TagBase[]>(`${SUPPLIER_BASE}/tag/${id}`)
+    // TODO remove
+    .catch(() => Promise.resolve({ data: tagsBaseMock }));
 
 export const getSupplierGoodByTag = (id: string, tagIds: string[]) =>
-  api.post<GoodBase[]>(`${SUPPLIER_BASE}/good/category/${id}`, {
-    tag_id: tagIds,
-  });
+  api
+    .post<GoodBase[]>(`${SUPPLIER_BASE}/good/category/${id}`, {
+      tag_id: tagIds,
+    })
+    // TODO remove
+    .catch(() => ({ data: goodsBaseMock }));
 
 const supplierMockData: SupplierFullData = {
   titleAndWorkingHours: {
@@ -86,3 +95,63 @@ const supplierMockData: SupplierFullData = {
     inn: "0987654",
   },
 };
+
+const tagsBaseMock: TagBase[] = [
+  {
+    id: "1",
+    tag_name: "Молоко",
+  },
+  {
+    id: "2",
+    tag_name: "Сыр",
+  },
+  {
+    id: "3",
+    tag_name: "Йогурт",
+  },
+  {
+    id: "4",
+    tag_name: "Творог",
+  },
+  {
+    id: "5",
+    tag_name: "Кефир",
+  },
+  {
+    id: "6",
+    tag_name: "Сметана",
+  },
+];
+
+export const goodsBaseMock: GoodBase[] = [
+  {
+    id: "1",
+    name: "Сыр Гауди",
+    price: "2000",
+    volume: "1 кг",
+  },
+  {
+    id: "2",
+    name: "Молоко коровье",
+    price: "200",
+    volume: "10 л",
+  },
+  {
+    id: "3",
+    name: "Домашний сыр",
+    price: "2000",
+    volume: "1 кг",
+  },
+  {
+    id: "4",
+    name: "Козий сыр",
+    price: "2000",
+    volume: "1 кг",
+  },
+  {
+    id: "5",
+    name: "Сыворотка",
+    price: "2000",
+    volume: "1 кг",
+  },
+];
