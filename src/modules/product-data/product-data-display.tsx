@@ -54,9 +54,11 @@ export default function ProductDataDisplay({
           {productPicUrl && <ImageSlider {...sliderProps} />}
         </div>
         <div className="mb-6 px-3">
-          <div className="mb-3">
-            <Chip state="outline" text="Остаток: 200 шт." />
-          </div>
+          {productData.balance && (
+            <div className="mb-3">
+              <Chip state="outline" text={productData.balance} />
+            </div>
+          )}
           <div className="w-full text-h2_m text-text-3">{productData.name}</div>
           {productData.volume && (
             <div className="w-full text-h2_m text-text-1">
@@ -95,7 +97,9 @@ export default function ProductDataDisplay({
               {productData.expiration_day}
             </ReadonlyField>
           )}
-          <ReadonlyField label="Фасовка">Фасовка</ReadonlyField>
+          {productData.volume && (
+            <ReadonlyField label="Фасовка">{productData.volume}</ReadonlyField>
+          )}
           {productData.producer && (
             <ReadonlyField label="Бренд, Производитель">
               {productData.producer}
