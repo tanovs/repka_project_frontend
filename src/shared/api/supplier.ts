@@ -19,7 +19,7 @@ export const getSupplierFullData = (id: string) =>
     getSupplierDeliveryInfo(id),
     getSupplierDocuments(id),
   ]).then((res) => {
-    return Promise.resolve(supplierMockData);
+    // return Promise.resolve(supplierMockData);
 
     const axiosResponseFullfillHandler = <T>(
       result: PromiseSettledResult<AxiosResponse<T, unknown>>

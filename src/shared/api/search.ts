@@ -16,17 +16,16 @@ export const searchByGoods = (params: SearchParams, query?: string) =>
         like: query || "",
       },
     })
-    .then(() => ({ data: supplierGoods }))
+    // .then(() => ({ data: supplierGoods }))
     .catch(() => ({ data: supplierGoods }));
 
 export const searchBySuppliers = (params: SearchParams, query: string) =>
-  api
-    .post<SupplierBase[]>("supplier/search_with_params", params, {
-      params: {
-        like: query,
-      },
-    })
-    .then(() => ({ data: suppliersMock }));
+  api.post<SupplierBase[]>("supplier/search_with_params", params, {
+    params: {
+      like: query,
+    },
+  });
+// .then(() => ({ data: suppliersMock }));
 
 const supplierGoods: SupplierWithGoods[] = [
   {

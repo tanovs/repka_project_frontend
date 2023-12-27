@@ -31,11 +31,11 @@ export function Categories({ scrollable }: CategoriesProps) {
 const parseCategoriesToProps = (categories: Category[]): CategoryCardProps[] =>
   categories.map(({ category_enum, category_name, id }) => {
     // TODO не работает абсолютный импорт и через алиасы
-    const b = `../../../src/assets/icons/categories/${category_enum}.svg`;
+    const b = `@assets/icons/categories/${category_enum}.svg`;
     const a = new URL(b, import.meta.url).href;
 
     return {
-      iconUrl: a,
+      iconUrl: `public/categories/${category_enum}.svg`,
       title: category_name,
       url: `../categories/${id}`,
     };
