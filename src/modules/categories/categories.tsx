@@ -35,7 +35,7 @@ const parseCategoriesToProps = (categories: Category[]): CategoryCardProps[] =>
     const a = new URL(b, import.meta.url).href;
 
     return {
-      iconUrl: `public/categories/${category_enum}.svg`,
+      iconUrl: `/categories/${category_enum}.svg`,
       title: category_name,
       url: `../categories/${id}`,
     };
