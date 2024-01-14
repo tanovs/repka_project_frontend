@@ -16,7 +16,7 @@ export default function ProductData({ id }: ProductDataProps) {
     if (!id) {
       throw Error("Product id not defined!");
     }
-    Promise.allSettled([getGoodFullData(id), getProductPicture(id, true)]).then(
+    Promise.allSettled([getGoodFullData(id), getProductPicture(id)]).then(
       (res) => {
         res[0].status === "fulfilled"
           ? setProductData(res[0].value.data)
@@ -26,7 +26,7 @@ export default function ProductData({ id }: ProductDataProps) {
     );
   });
 
-  if (id && productData && productPicUrl) {
+  if (id && productData) {
     return (
       <ProductDataDisplay
         id={id}

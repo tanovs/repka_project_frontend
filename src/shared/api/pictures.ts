@@ -1,12 +1,12 @@
 import { AxiosResponse } from "axios";
 import { api } from "./core/config";
 
-export const getProductPicture = (id: string, emptyAllowed?: boolean) =>
+export const getProductPicture = (id: string, emptyPicAllowed?: boolean) =>
   api
     .get(`good/photo/${id}`, {
       responseType: "blob",
     })
-    .then(transformBlobToImage(emptyAllowed ? "product" : undefined))
+    .then(transformBlobToImage(emptyPicAllowed ? "product" : undefined))
     .catch(() => mockPic("product"));
 
 export const getSupplierPicture = (id: string, emptyAllowed?: boolean) =>
@@ -29,7 +29,7 @@ const transformBlobToImage = (
   emptyTemplate?: "product" | "supplier" | "supplier-logo"
 ) => {
   return (res: AxiosResponse<Blob, unknown>) => {
-    if (res.data) {
+    if (res.data?.size) {
       return URL.createObjectURL(res.data);
     }
     if (!emptyTemplate) {

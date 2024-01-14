@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as SupplierRegistrationImage } from "../../assets/icons/supplier-registration-image.svg";
 import SingleButtonPageWrapper from "../single-button-page-wrapper/single-button-page-wrapper";
+import { IMAGES } from "@/shared/utils/images";
 
 export default function SupplierRegistrationOffer() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function SupplierRegistrationOffer() {
       onMainButtonClick={() => navigate("../")}
       onBackButtonClick={() => navigate("../../")}
     >
-      <SupplierRegistrationImage />
+      <img src={IMAGES.supplierRegistration} />
     </SingleButtonPageWrapper>
   );
 }

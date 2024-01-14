@@ -20,11 +20,15 @@ export const searchByGoods = (params: SearchParams, query?: string) =>
     .catch(() => ({ data: supplierGoods }));
 
 export const searchBySuppliers = (params: SearchParams, query: string) =>
-  api.post<SupplierBase[]>("supplier/search_with_params", params, {
-    params: {
-      like: query,
-    },
-  });
+  api.post<SupplierBase[]>(
+    "supplier/search_with_params",
+    Object.keys(params).length ? params : undefined,
+    {
+      params: {
+        like: query,
+      },
+    }
+  );
 // .then(() => ({ data: suppliersMock }));
 
 const supplierGoods: SupplierWithGoods[] = [

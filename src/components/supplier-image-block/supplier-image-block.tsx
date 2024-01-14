@@ -6,7 +6,7 @@ export type SupplierImageBlockProps = {
   imageUrl: string;
   logoUrl: string;
   onBackButtonClick: () => void;
-  onSearchButtonClick: () => void;
+  onSearchButtonClick?: () => void;
 };
 
 export function SupplierImageBlock({
@@ -25,9 +25,11 @@ export function SupplierImageBlock({
           <ButtonIcon hasBackground onClick={onBackButtonClick}>
             <ChevronIcon className="rotate-90" />
           </ButtonIcon>
-          <ButtonIcon hasBackground onClick={onSearchButtonClick}>
-            <SearchIcon />
-          </ButtonIcon>
+          {onSearchButtonClick && (
+            <ButtonIcon hasBackground onClick={onSearchButtonClick}>
+              <SearchIcon />
+            </ButtonIcon>
+          )}
         </div>
         <div
           style={{ backgroundImage: `url('${logoUrl}')` }}

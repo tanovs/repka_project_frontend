@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as CompleteOrderImage } from "../../assets/icons/order-complete-image.svg";
 import SingleButtonPageWrapper from "../single-button-page-wrapper/single-button-page-wrapper";
+import { IMAGES } from "@/shared/utils/images";
 
 export default function OrderComplete() {
   const navigate = useNavigate();
@@ -14,7 +15,8 @@ export default function OrderComplete() {
       onBackButtonClick={() => navigate("/cart")}
       onMainButtonClick={() => navigate("../order-data/1")}
     >
-      <CompleteOrderImage />
+      {/* <CompleteOrderImage /> */}
+      <img src={IMAGES.orderComplete} />
     </SingleButtonPageWrapper>
   );
 }

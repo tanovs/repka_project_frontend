@@ -119,7 +119,7 @@ export const transformSupplierSearchToSupplierGoodsBlockProps = (
 };
 
 export const transformGoodsToCardsWithPics = (goods: GoodBase[]) =>
-  Promise.all(goods.map((item) => getProductPicture(item.id))).then(
+  Promise.all(goods.map((item) => getProductPicture(item.id, true))).then(
     (goodsPics) => {
       const transformedGoods: SmallGoodsCardProps[] = goods.map(
         ({ id, name, price, volume }, indx) => ({

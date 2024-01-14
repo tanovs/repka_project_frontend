@@ -24,7 +24,7 @@ export function SupplierInfo({
     imageUrl,
     logoUrl,
     onBackButtonClick: () => navigate(-1),
-    onSearchButtonClick: () => navigate("/search"),
+    // onSearchButtonClick: () => navigate("/search"),
   };
   const { contacts, deliveryInfo, documents, titleAndWorkingHours } =
     supplierData;
