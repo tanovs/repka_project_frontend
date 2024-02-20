@@ -39,8 +39,13 @@ export default function SmallGoodsCard({
           </div>
         ) : (
           <div className="m-2 flex items-baseline justify-between">
-            <span className="text-b5_m text-text-0">{weight}</span>
-            <span className="text-b3_m text-text-3">{price} ₽</span>
+            <span className="whitespace-nowrap text-b5_m text-text-0">
+              {weight}
+            </span>
+            <span className="whitespace-nowrap text-b3_m text-text-3">
+              {price}
+              {/* ₽ */}
+            </span>
           </div>
         )}
       </div>

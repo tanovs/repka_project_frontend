@@ -67,8 +67,12 @@ export default function ProductDataDisplay({
           )}
         </div>
         <FoldingBlock title="О товаре">
-          <ReadonlyField label="КБЖУ на 100 грамм">
-            <div className="mr-5 flex flex-col items-center">
+          {productData.calories && (
+            <ReadonlyField label="КБЖУ на 100 грамм">
+              {productData.calories}
+            </ReadonlyField>
+          )}
+          {/* <div className="mr-5 flex flex-col items-center">
               <div className="text-b1_m text-text-3">4,7</div>
               <div className="text-b4_m text-text-3">углеводы</div>
             </div>
@@ -87,8 +91,7 @@ export default function ProductDataDisplay({
                 </div>
                 <div className="text-b4_m text-text-3">ккал</div>
               </div>
-            )}
-          </ReadonlyField>
+            )} */}
           {productData.compound && (
             <ReadonlyField label="Состав">{productData.compound}</ReadonlyField>
           )}
@@ -98,7 +101,8 @@ export default function ProductDataDisplay({
             </ReadonlyField>
           )}
           {productData.volume && (
-            <ReadonlyField label="Фасовка">{productData.volume}</ReadonlyField>
+            // <ReadonlyField label="Фасовка">{productData.volume}</ReadonlyField>
+            <ReadonlyField label="Цена">{productData.volume}</ReadonlyField>
           )}
           {productData.producer && (
             <ReadonlyField label="Бренд, Производитель">

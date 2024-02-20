@@ -28,7 +28,7 @@ export function SupplierProductList({ supplierId }: SupplierProductListProps) {
         tagsIdSelected={[]}
         onSelectedTagsChange={(tagArr) => setChosenTags([...tagArr])}
       />
-      <div className="rounded-2xl bg-basic-0 px-5">
+      <div className="rounded-2xl bg-basic-0 px-5 pb-7">
         <GoodsSearch supplierId={supplierId} tags={chosenTags} />
       </div>
     </div>

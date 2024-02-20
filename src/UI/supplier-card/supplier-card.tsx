@@ -50,7 +50,7 @@ export default function SupplierCard({
         <div className="text-start text-b3_m text-text-1">
           <span className="inline-flex items-center">
             <ClockLogo className="inline-block h-3 w-3 align-middle" />
-            &nbsp;{daysToSupply} день •&nbsp;
+            &nbsp;{daysToSupply} •&nbsp;
           </span>
           <span>{minPrice} ₽ мин. сумма заказа</span>
         </div>

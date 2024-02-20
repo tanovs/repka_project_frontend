@@ -1,5 +1,7 @@
 import { AxiosResponse } from "axios";
 import { api } from "./core/config";
+import { PictureType } from "../models/pictures.model";
+import { STUB_IMAGE_URLS } from "../utils/images";
 
 export const getProductPicture = (id: string, emptyPicAllowed?: boolean) =>
   api
@@ -22,12 +24,10 @@ export const getSupplierLogo = (id: string) =>
     .get(`logo/${id}`, {
       responseType: "blob",
     })
-    .then(transformBlobToImage("supplier-logo"))
-    .catch(() => mockPic("supplier-logo"));
+    .then(transformBlobToImage("supplierLogo"))
+    .catch(() => mockPic("supplierLogo"));
 
-const transformBlobToImage = (
-  emptyTemplate?: "product" | "supplier" | "supplier-logo"
-) => {
+const transformBlobToImage = (emptyTemplate?: PictureType) => {
   return (res: AxiosResponse<Blob, unknown>) => {
     if (res.data?.size) {
       return URL.createObjectURL(res.data);
@@ -40,7 +40,6 @@ const transformBlobToImage = (
   };
 };
 
-const mockPic = (emptyTemplate?: "product" | "supplier" | "supplier-logo") => {
-  const b = `../../../src/assets/images/${emptyTemplate}-empty-image.png`;
-  return new URL(b, import.meta.url).href;
+const mockPic = (emptyTemplate: PictureType) => {
+  return STUB_IMAGE_URLS[emptyTemplate];
 };
