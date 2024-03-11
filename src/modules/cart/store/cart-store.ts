@@ -65,7 +65,7 @@ export default class CartStorage {
       return;
     }
     productToDecrease.amount--;
-    if (productToDecrease.amount === 0) {
-    }
+    // if (productToDecrease.amount === 0) {
+    // }
   }
 }

@@ -1,8 +1,6 @@
-import { SubmitHandler, UseFormReturn, useForm } from "react-hook-form";
+import { forwardRef, useImperativeHandle, useRef } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import InputWithTitle from "../../../UI/input-with-title/input-with-title";
-import AttachmentUpload from "../ui/attachment-upload/attachment-upload";
-import WideButton from "../../../UI/wide-button/wide-button";
-import { useRef, useImperativeHandle, forwardRef } from "react";
 import RepkaSelect from "../../../UI/repka-select/repka-select";
 
 export type SupplierRegisterShippingFields = {
@@ -15,7 +13,7 @@ export type SupplierRegisterShippingFields = {
 };
 
 export const SupplierRegisterShipping = forwardRef(
-  (props: { formStepChange: () => void }, ref) => {
+  function SupplierRegisterShipping(props: { formStepChange: () => void }, ref) {
     const {
       register,
       handleSubmit,
