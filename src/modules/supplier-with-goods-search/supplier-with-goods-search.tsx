@@ -40,15 +40,15 @@ export function SupplierWithGoodsSearch({
       searchByGoods({
         category_id: categoryId ? [categoryId] : [],
         tag_id: [tag.id],
-      })
+      }),
     );
 
     Promise.all(searches)
       .then((searchResults) => {
         return Promise.all(
           searchResults.map((supplier) =>
-            transformSupplierSearchToSupplierGoodsBlockProps(supplier.data)
-          )
+            transformSupplierSearchToSupplierGoodsBlockProps(supplier.data),
+          ),
         );
       })
       .then((supplierWithGoodsProps) => {
@@ -70,7 +70,7 @@ export function SupplierWithGoodsSearch({
       .then((res) => res.data)
       .then(transformSupplierSearchToSupplierGoodsBlockProps)
       .then((supplierBlockProps) =>
-        transformedSupplierGoods.push(...supplierBlockProps)
+        transformedSupplierGoods.push(...supplierBlockProps),
       )
       .then(() => setDefaultSerachResults([...transformedSupplierGoods]));
   };
@@ -103,7 +103,7 @@ export function SupplierWithGoodsSearch({
 }
 
 export const transformSupplierSearchToSupplierGoodsBlockProps = (
-  suppliers: SupplierWithGoods[]
+  suppliers: SupplierWithGoods[],
 ) => {
   const supplierBlockPropsPromises = suppliers.map((supplierData) => {
     const transfromedItem: SupplierAndGoodsBlockProps = {
@@ -129,9 +129,9 @@ export const transformGoodsToCardsWithPics = (goods: GoodBase[]) =>
           weight: volume,
           editMode: false,
           imageUrl: goodsPics[indx] || "",
-        })
+        }),
       );
 
       return transformedGoods;
-    }
+    },
   );

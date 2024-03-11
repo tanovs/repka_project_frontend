@@ -28,8 +28,8 @@ export default function AttachmentUpload({
     attachmentType === "image"
       ? "image/png, image/gif, image/jpeg"
       : "application/pdf, application/vnd.ms-excel";
-  let containerSizeClasses: string = "";
-  let imageSizeClasses: string = "";
+  let containerSizeClasses = "";
+  let imageSizeClasses = "";
   const [imageSrc, setImageSrc] = useState<string>("");
   switch (size) {
     case "small":

@@ -33,16 +33,16 @@ export function GoodsSearch({ supplierId, tags }: GoodsSearchProps) {
 
   const searchByTags = () => {
     const searches = tags.map((tag) =>
-      getSupplierGoodByTag(supplierId, [tag.id])
+      getSupplierGoodByTag(supplierId, [tag.id]),
     );
 
     Promise.all(searches)
       .then((data) =>
         Promise.all(
           data.map((goodResult) =>
-            transformGoodsToCardsWithPics(goodResult.data)
-          )
-        )
+            transformGoodsToCardsWithPics(goodResult.data),
+          ),
+        ),
       )
       .then((searchResults) => {
         const tagToResults: [string, SmallGoodsCardProps[]][] = searchResults

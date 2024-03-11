@@ -1,21 +1,21 @@
 import {
-  FloatingPortal,
-  FloatingOverlay,
   FloatingFocusManager,
+  FloatingOverlay,
+  FloatingPortal,
+  useDismiss,
   useFloating,
   useInteractions,
-  useDismiss,
 } from "@floating-ui/react";
 import { createContext, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import WideButton from "../../UI/wide-button/wide-button";
 import { ButtonIcon } from "../../UI/button-icon/button-icon";
+import WideButton from "../../UI/wide-button/wide-button";
 import { ReactComponent as CrossIcon } from "../../assets/icons/cross.svg";
 
 type ConfirmSkipProductAddDialog = {};
 
 export const ConfirmDialogContext = createContext<(isOpen: boolean) => void>(
-  () => {}
+  () => {},
 );
 
 export default function SupplierRegisterWrapper() {

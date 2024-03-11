@@ -23,7 +23,7 @@ export default function ProductListPage() {
   useEffect(() => {
     getAllCategories().then((res) => {
       const title = res.data.categories.find(
-        (category) => category.id === categoryId
+        (category) => category.id === categoryId,
       )?.category_name;
       if (title) {
         setHeaderTitle(title);

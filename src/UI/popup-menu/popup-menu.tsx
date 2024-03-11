@@ -30,7 +30,7 @@ export function PopupMenu({
         } absolute left-0 top-7 flex w-64 flex-col justify-center overflow-hidden rounded-lg drop-shadow-lg`}
       >
         {items.map(({ id, text, iconTemplate }) =>
-          itemTemplate(id, text, iconTemplate)
+          itemTemplate(id, text, iconTemplate),
         )}
       </div>
       {children}

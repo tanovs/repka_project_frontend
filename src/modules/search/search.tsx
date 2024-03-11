@@ -15,7 +15,7 @@ export const searchTermParam = "searchTerm";
 
 export function Search({ onSetFiltersVisibility }: SearchProps) {
   const [searchEntityType, setSearchEntityType] = useState<SearchForEntities>(
-    SearchForEntities.Goods
+    SearchForEntities.Goods,
   );
   const [searchTerm, setSearchTerm] = useState("");
   const [searchActive, setSearchActive] = useState(false);

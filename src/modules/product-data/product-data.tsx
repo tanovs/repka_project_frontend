@@ -22,7 +22,7 @@ export default function ProductData({ id }: ProductDataProps) {
           ? setProductData(res[0].value.data)
           : null;
         res[1].status === "fulfilled" ? setProductPicUrl(res[1].value) : null;
-      }
+      },
     );
   });
 

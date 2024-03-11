@@ -21,7 +21,7 @@ export default class CartStorage {
 
   addItem(supplierId: string, product: SmallGoodsCardProps): void {
     const foundSupplier = this.cart.find(
-      (cartItem) => cartItem.supplierId === supplierId
+      (cartItem) => cartItem.supplierId === supplierId,
     );
     if (!foundSupplier) {
       this.cart.push({
@@ -38,7 +38,7 @@ export default class CartStorage {
     }
 
     const productToIncrease = foundSupplier.goods.find(
-      (item) => item.product.id === product.id
+      (item) => item.product.id === product.id,
     );
     if (!productToIncrease) {
       foundSupplier.goods.push({
@@ -52,14 +52,14 @@ export default class CartStorage {
 
   deleteItem(supplierId: string, productToDelete: SmallGoodsCardProps): void {
     const foundCardItem = this.cart.find(
-      (cartItem) => cartItem.supplierId === supplierId
+      (cartItem) => cartItem.supplierId === supplierId,
     );
     if (!foundCardItem) {
       return;
     }
 
     const productToDecrease = foundCardItem.goods.find(
-      (good) => good.product.id === productToDelete.id
+      (good) => good.product.id === productToDelete.id,
     );
     if (!productToDecrease) {
       return;

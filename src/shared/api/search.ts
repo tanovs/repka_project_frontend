@@ -27,7 +27,7 @@ export const searchBySuppliers = (params: SearchParams, query: string) =>
       params: {
         like: query,
       },
-    }
+    },
   );
 // .then(() => ({ data: suppliersMock }));
 

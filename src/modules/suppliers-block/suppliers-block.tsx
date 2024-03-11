@@ -4,12 +4,11 @@ import SupplierCard, {
 } from "@/UI/supplier-card/supplier-card";
 import { getSupplierLogo, getSupplierPicture } from "@/shared/api/pictures";
 import { searchBySuppliers } from "@/shared/api/search";
-import { SupplierBase } from "@/shared/models/supplier.model";
 import { useEffect, useState } from "react";
 
-export type SuppliersBlockProps = {};
+// export type SuppliersBlockProps = {};
 
-export function SuppliersBlock({}: SuppliersBlockProps) {
+export function SuppliersBlock() {
   const [supplierCardProps, setSupplierCardProps] = useState<
     SupplierCardProps[]
   >([]);
@@ -20,7 +19,7 @@ export function SuppliersBlock({}: SuppliersBlockProps) {
         return Promise.all([
           Promise.resolve(res.data),
           Promise.all(
-            res.data.map((supplier) => getSupplierPicture(supplier.id))
+            res.data.map((supplier) => getSupplierPicture(supplier.id)),
           ),
           Promise.all(res.data.map((supplier) => getSupplierLogo(supplier.id))),
         ]);
@@ -34,7 +33,7 @@ export function SuppliersBlock({}: SuppliersBlockProps) {
             daysToSupply: supplier.estimated_delivery_time,
             companyImage: suppliersCovers[index],
             companyLogo: suppliersLogos[index],
-          })
+          }),
         );
         setSupplierCardProps(initialCardProps);
       });

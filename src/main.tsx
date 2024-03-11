@@ -9,5 +9,5 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <div className="mx-auto md:max-w-4xl">
       <RouterProvider router={routes} />
     </div>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

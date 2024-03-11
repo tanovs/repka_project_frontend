@@ -1,17 +1,14 @@
-import { useEffect, useState } from "react";
-import { SupplierInfo } from "./supplier-info";
+import { SmallGoodsCardProps } from "@/UI/small-goods-card/small-goods-card";
+import SupplierAndGoodsBlock from "@/components/supplier-and-goods-block";
+import { getSupplierLogo, getSupplierPicture } from "@/shared/api/pictures";
 import {
   getSupplierFullData,
   getSupplierProducts,
 } from "@/shared/api/supplier";
 import { SupplierFullData } from "@/shared/models/supplier.model";
-import SupplierAndGoodsBlock from "@/components/supplier-and-goods-block";
-import {
-  transformGoodsToCardsWithPics,
-  transformSupplierSearchToSupplierGoodsBlockProps,
-} from "../supplier-with-goods-search/supplier-with-goods-search";
-import { SmallGoodsCardProps } from "@/UI/small-goods-card/small-goods-card";
-import { getSupplierLogo, getSupplierPicture } from "@/shared/api/pictures";
+import { useEffect, useState } from "react";
+import { transformGoodsToCardsWithPics } from "../supplier-with-goods-search/supplier-with-goods-search";
+import { SupplierInfo } from "./supplier-info";
 
 export type SupplierFullDataProps = {
   supplierId: string;

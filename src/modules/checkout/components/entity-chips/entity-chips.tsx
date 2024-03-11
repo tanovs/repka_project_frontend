@@ -22,7 +22,7 @@ export default function EntityChipsArea({ entities }: EntityChipsAreaProps) {
         />
       );
       return chip;
-    }
+    },
   );
 
   return <ChipsWrapped>{weekDaysChips}</ChipsWrapped>;

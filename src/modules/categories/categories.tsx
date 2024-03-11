@@ -13,7 +13,7 @@ export type CategoriesProps = {
 
 export function Categories({ scrollable }: CategoriesProps) {
   const [categoriesProps, setCategoriesProps] = useState<CategoryCardProps[]>(
-    []
+    [],
   );
 
   useEffect(() => {

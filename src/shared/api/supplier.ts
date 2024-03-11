@@ -22,7 +22,7 @@ export const getSupplierFullData = (id: string) =>
     // return Promise.resolve(supplierMockData);
 
     const axiosResponseFullfillHandler = <T>(
-      result: PromiseSettledResult<AxiosResponse<T, unknown>>
+      result: PromiseSettledResult<AxiosResponse<T, unknown>>,
     ) => (result.status === "fulfilled" ? result.value.data : undefined);
 
     return <SupplierFullData>{

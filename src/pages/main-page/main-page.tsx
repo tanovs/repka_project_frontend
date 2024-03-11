@@ -1,9 +1,8 @@
-import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { MainFilters } from "../../modules/main-filters";
-import { Search } from "../../modules/search/search";
-import RepkaHeader from "../../components/repka-header/repka-header";
+import { Outlet, useNavigate } from "react-router-dom";
 import WideButton from "../../UI/wide-button/wide-button";
+import RepkaHeader from "../../components/repka-header/repka-header";
+import { MainFilters } from "../../modules/main-filters";
 
 export function MainPage() {
   const [filtersVisible, setFiltersVisibility] = useState(false);

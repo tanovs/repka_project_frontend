@@ -46,7 +46,7 @@ export function NotificationBlock({
 }
 
 function getNotificationColor(
-  color: NotificationBlockProps["color"]
+  color: NotificationBlockProps["color"],
 ): string[] {
   switch (color) {
     case "accent":

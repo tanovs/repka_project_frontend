@@ -29,7 +29,7 @@ export const SupplierRegisterShipping = forwardRef(
     useImperativeHandle(ref, () => ({
       submitForm() {
         formRef.current?.dispatchEvent(
-          new Event("submit", { cancelable: true, bubbles: true })
+          new Event("submit", { cancelable: true, bubbles: true }),
         );
       },
     }));
@@ -111,5 +111,5 @@ export const SupplierRegisterShipping = forwardRef(
         </form>
       </>
     );
-  }
+  },
 );
